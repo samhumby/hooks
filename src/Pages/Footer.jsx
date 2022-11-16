@@ -1,4 +1,5 @@
 import '../App.css';
+import React from 'react';
 
 const Footer = ({data}) => {
   const { footer } = data;
@@ -7,11 +8,11 @@ const Footer = ({data}) => {
     <div className='footer'>
       <ul>
         {
-          footer.map(item => <li><div dangerouslySetInnerHTML={{__html: item}}/></li>)
+          footer.map((item, index) => <li key={`footer-key-item-${index}`}><div dangerouslySetInnerHTML={{__html: item}}/></li>)
         }
       </ul>
     </div>
   );
 }
 
-export default Footer;
+export default React.memo(Footer);

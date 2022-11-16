@@ -23,7 +23,7 @@ const UseId = () => {
           <hr />
 
           <div>
-            <div style={{marginBottom: 10}}>{`Id #1 being used on form below = "${id_2}"`}</div>
+            <div style={{marginBottom: 10}}>{`Id #2 being used on form below = "${id_2}"`}</div>
             <label htmlFor={id_2}>Do you like Apples?</label>
             <input id={id_2} type="checkbox" name="react"/>          
           </div>
@@ -31,7 +31,7 @@ const UseId = () => {
           <hr />
 
           <div>
-            <div style={{marginBottom: 10}}>{`Id #1 being used on form below = "${id_3}"`}</div>
+            <div style={{marginBottom: 10}}>{`Id #3 being used on form below = "${id_3}"`}</div>
             <label htmlFor={id_3}>Do you like Cats?</label>
             <input id={id_3} type="checkbox" name="react"/>  
           </div>

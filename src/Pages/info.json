@@ -1,8 +1,20 @@
 {
   "useState": {
     "name": "useState",
-    "description": "TODO",
-    "footer": ["test"]
+    "description": "Allows for a stateful value in a component where the value can be updated and persisted across renders",
+    "footer": ["Changing the state causes the component to re-render"]
+  },
+
+  "useContext": {
+    "name": "useContext",
+    "description": "Allows for the sharing of data between components without the need for \"Prop Drilling\"",
+    "footer": ["Split into 2 different concepts: Provider and Consumer"]
+  },
+
+  "useDebugValue": {
+    "name": "useDebugValue",
+    "description": "Lets you format the debug value in the console for custom hooks",
+    "footer": ["Requires ReactDevTools extension", "Only works in custom hooks", "Function mode allows for it to be only called in development mode and if the console is open"]
   },
 
   "useId": {
@@ -15,5 +27,65 @@
     "name": "useSyncExternalStore",
     "description": "Connect an external store of data (global store) to internal component-level state",
     "footer": ["React 18", "Supports server side rendering"]
+  },
+
+  "useEffect": {
+    "name": "useEffect",
+    "description": "Defines a function which will run when the state changes",
+    "footer": ["The return statement variant can be used as cleanup, for removing event listeners", "useEffect is asynchronous so it will not block the DOM. The DOM will render and at some point in the future, useEffect will resolve"]
+  },
+
+  "useReducer": {
+    "name": "useReducer",
+    "description": "useState is not the only way to manage state, useReducer provides a way to manage complex state objects and mutate them based on different actions",
+    "footer": ["Similar pattern to Redux, minus a lot of the boilerplate code.", "Allows stateful values to have more complex actions built into them"]
+  },
+
+  "useCallback": {
+    "name": "useCallback",
+    "description": "Provides a way to wrap a function and control when it is re-calculated",
+    "footer": ["The main difference between useCallback and useMemo is that useCallback returns a function which can be used elsewhere in the component", "The difference is that this function doesn't get recreated on a new memory reference every time the component re-renders"]
+  },
+
+  "useMemo": {
+    "name": "useMemo",
+    "description": "Allows you to cache the result of a calculation between renders",
+    "footer": ["Use for computations that are not expected to change value", "Similarly, can wrap components in React.memo(...)"]
+  },
+
+  "useRef": {
+    "name": "useRef",
+    "description": "\"The most misused hook\" - allows you to persist a stateful value WITHOUT causing the page to re-render",
+    "footer": ["Most commonly known for referencing elements in the HTML document", "similar to useState but without the re-render", "Don't use it to manipulate state", "Can use it to save the previous state"]
+  },
+
+  "useImperativeHandle": {
+    "name": "useImperativeHandle",
+    "description": "Allows you to give custom logic to the ref of Components",
+    "footer": ["Components cannot be given the \"ref\" attribute", "useful for accessing multiple elements inside a custom component from outside of that component"]
+  },
+
+  "useLayoutEffect": {
+    "name": "useLayoutEffect",
+    "description": "Almost identical to useEffect, however it run synchronously between when React calculates the new DOM and paints it to the screen",
+    "footer": ["useLayoutEffect does block the DOM from rendering to the screen", "First try useEffect and if DOM manipulation is causing a problem, use useLayoutEffect"]
+  },
+
+  "useDeferredValue": {
+    "name": "useDeferredValue",
+    "description": "If a variable is marked as useDeferred then React will not update it until a \"decent\" amount of time has passed",
+    "footer": ["Similar to debouncing an input"]
+  },
+
+  "useTransition": {
+    "name": "useTransition",
+    "description": "Allows you to split high computation state changes into their own lower priority renders",
+    "footer": ["When the input is changed, React will attempt to bundle together all the recent state changes before re-rendering", "Only use when needed! As you're forcing the application to do more renders than normal"]
+  },
+
+  "useInsertionEffect": {
+    "name": "useInsertionEffect",
+    "description": "The signature is identical to useEffect, but it fires synchronously before all DOM mutations.",
+    "footer": ["Use this to inject styles into the DOM before reading layout in useLayoutEffect.", "Since this hook is limited in scope, this hook does not have access to refs and cannot schedule updates.", "useInsertionEffect should be limited to css-in-js library authors"]
   }
 }

@@ -1,19 +1,20 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import '../App.css';
 import Header from './Header';
 import info from './info.json';
 import Footer from './Footer';
+import { ThemeContext } from '../App';
 
 const UseState = () => {
-  // useState take in a vale that is set to the initial state
-  // useState returns an array, the first item being the value and the second being a function to change the value
+  const darkMode = useContext(ThemeContext);
 
+  
   const [item, setItem] = useState("Initial Value");
 
   return (
     <>
       <Header data={info['useState']}/>
-      <div className='content'>
+      <div className={!darkMode ? 'content' : 'contentDark'}>
 
         <div>{`Value = "${item}"`}</div>
 

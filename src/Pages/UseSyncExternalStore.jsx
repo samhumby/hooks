@@ -1,4 +1,4 @@
-import { useSyncExternalStore } from 'react';
+import { useState, useSyncExternalStore } from 'react';
 import '../App.css';
 import Header from './Header';
 import info from './info.json';
@@ -11,6 +11,8 @@ const useStore = (selector = (state) => state) => useSyncExternalStore(store.sub
 const UseSyncExternalStore = () => {
   const value1 = useStore((state) => state['value1']);
   const value2 = useStore((state) => state['value2']);
+
+  const [value3, setValue3]= useState(0); 
 
   const state = useStore();
   const alterValue = (value, amount) => {
@@ -34,6 +36,13 @@ const UseSyncExternalStore = () => {
         <div>{ `Value #2 is set to: ${value2}` }</div>
         <button onClick={() => alterValue('value2', 1)} > + </button>
         <button onClick={() => alterValue('value2', -1)} > - </button>
+
+        <hr />
+
+        <div>{ `(Internal state) Value #3 is set to: ${value3}` }</div>
+        <button onClick={() => setValue3(value3 + 1)} > + </button>
+        <button onClick={() => setValue3(value3 - 1)} > - </button>
+
 
       </div>
       <Footer data={info['useSyncExternalStore']}/>

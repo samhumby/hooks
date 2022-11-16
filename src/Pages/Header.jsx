@@ -1,4 +1,5 @@
 import '../App.css';
+import React from 'react';
 
 const Header = ({data}) => {
   const { name, description, input, output } = data;
@@ -11,4 +12,4 @@ const Header = ({data}) => {
   );
 }
 
-export default Header;
+export default React.memo(Header);
